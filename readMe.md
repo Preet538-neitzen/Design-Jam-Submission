@@ -1,4 +1,4 @@
-+++
+---
 title = "Check if String exists in Data using MySQL"
 date = 2021-11-16
 draft = false
@@ -9,7 +9,7 @@ author = "Preet Sanghavi"
 postlink = 2602252
 inarticle = true
 
-+++
+---
 
 In this tutorial, we aim at exploring different methods to check the presence of a string in a table in MySQL.
 
@@ -44,107 +44,75 @@ The above query creates a table along with rows with student first name and last
 ```SQL
 SELECT * FROM student_details;
 ```
-![Output](https://myoctocat.com/assets/images/base-octocat.svg)
+The above code would give the following output:
+```SQL
+1|Preet|Sanghavi
+2|Rich|John
+3|Veron|Brow
+4|Geo|Jos
+5|Hash|Shah
+6|Sachin|Parker
+7|David|Miller
+```
 
-**Let's aim at finding all the students that contains the word 'Park'.**
+**Let's aim at finding all the students that contains the word 'Park' in their surname.**
 
 ## Finding the string 'Park' using the LOCATE function in MySQL.
 
-The locate function in MySQL generally takes 2 arguements such as LOCATE(substr, str). Here 
+The locate function in MySQL generally takes 2 arguements such as LOCATE(substr, str). Here, substr is the substring passed in as the first argument, and str is the string passed in as the second argument. The output of the LOCATE function is the first row with the occurence of the string that is passed as an arguement. To see this function in action, take a look at the code below.
 
-
-
-
-Output:
-
-```python
-   a  b  c  d
-0  4  4  4  0
-1  8  1  2  5
-2  3  0  4  3
-3  3  7  2  4
-4  8  3  1  8
-5  6  7  5  9
+```SQL
+-- finding the word 'Park' from the table where the last name of the student is Park.
+SELECT * FROM student_details WHERE LOCATE('Park', stu_lastName) > 0 ;
+```
+The above code would give the following output:
+```SQL
+stu_id	stu_firstName	stu_lastName
+6	    Sachin	        Parker
 ```
 
-## Add Pandas `DataFrame` `header` Row (Pandas DataFrame Column Names) by Using `dataframe.columns`
+## Finding the string 'Park' using the INSTR function in MySQL.
 
-We can also add `header` row to `dataframe` by using `dataframe.columns`.
+Similar to the LOCATE function, the INSTR function, INSTR(str, substr), takes 2 arguements. However, this function returns the index value of the very first time the string occurs in the substring passed in as parameters. Here, the `str` is the string passed in as the first argument, and `substr` is the substring passed in as the second argument. To see this function in action, take a look at the code below.
 
-<!--adsense-->
 
-Example Codes:
-
-```python
-# python 3.x
-import pandas as pd
-import numpy as np
-
-df = pd.DataFrame(data=np.random.randint(0, 10, (6,4)))
-
-df.columns=["a", "b", "c", "d"]
-print(df)
+```SQL
+-- finding the word 'Park' from the table where the last name of the student is Park.
+SELECT * FROM student_details WHERE INSTR(stu_lastName , 'Parker') > 0;
+```
+The above code would give the following output:
+```SQL
+stu_id	stu_firstName	stu_lastName
+6	    Sachin	        Parker
 ```
 
-Output:
+**Note: The way the arguements are passed in the LOCATE(substr,str) and INSTR(str,substr) functions is different.**
 
-```python
-   a  b  c  d
-0  5  2  6  7
-1  4  5  9  0
-2  8  3  0  4
-3  6  3  1  1
-4  9  3  4  8
-5  7  5  0  6
+## Finding the string 'Park' using the LIKE operator in MySQL.
+
+Another alternative to find the existence of a string in your data is to use `LIKE`. This operator is used along with the `WHERE` clause to look for a particular string. To see this technique in action, take a look at the code below.   
+
+
+```SQL
+-- finding the word 'Park' from the table where the last name of the student is Parker.
+SELECT * FROM student_details WHERE stu_lastName LIKE 'Parker' ;
+```
+The above code would again give the following output:
+```SQL
+stu_id	stu_firstName	stu_lastName
+6	    Sachin	        Parker
 ```
 
-## Add Pandas `DataFrame` `header` Row (Pandas DataFrame Column Names) Without Replacing Current `header`
+Moreover, a `%`, also known as the wildcard is also used along with the LIKE operator. This wildcard, as the name suggests, represents none, one or multiple characters in its place. To see this wildcard in action, take a look at the code below.   
 
-Another option is to add the header row as an additional column index level to make it a MultiIndex. This approach is helpful when we need an extra layer of information for columns.
-
-Example Codes:
-
-<!--adsense-->
-
-```python
-# python 3.x
-import pandas as pd
-import numpy as np
-df = pd.DataFrame(
-    data=np.random.randint(
-        0, 10, (6,4)),
-    columns=["a", "b", "c", "d"])
-df.columns = pd.MultiIndex.from_tuples(
-    zip(['A', 'B','C', 'D'], 
-        df.columns))
-print(df)
+```SQL
+-- finding the student with last name ending in 'arker' from the table.
+SELECT * FROM student_details WHERE stu_lastName LIKE '%arker' ;
+```
+The above code would again give the following output:
+```SQL
+stu_id	stu_firstName	stu_lastName
+6	    Sachin	        Parker
 ```
 
-Output:
-
-```python
-   A  B  C  D
-   a  b  c  d
-0  2  6  4  6
-1  5  0  5  1
-2  9  6  6  1
-3  8  9  7  4
-4  6  5  6  6
-5  3  9  1  5
-```
-
-## Add Panda DataFrame `header` Row (Pandas DataFrame Column Names) to `dataframe` When Reading CSV Files
-
-We can use `names` directly in the `read_csv`, or set `header=None` explicitly if a file has no header.
-
-Example Codes:
-
-```python
-# python 3.x
-import pandas as pd
-import numpy as np
-df = pd.Cov = pd.read_csv(
-    "path/to/file.csv", 
-     sep='\t', 
-     names=["a", "b", "c", "d"])
-```xxxxxxxxxx from matplotlib import pyplot as pltfrom datetime import datetime, timedeltaxvalues = range(10)yvalues = xvaluesfig,ax = plt.subplots()plt.plot(xvalues, yvalues)ax.tick_params(axis='x', labelsize=16)plt.grid(True)plt.show()python
+Thus, with the help of the above three techniques, we can efficiently find determine the existence of a string from a table. 
