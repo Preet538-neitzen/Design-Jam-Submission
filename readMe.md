@@ -84,7 +84,7 @@ SELECT * FROM student_details WHERE INSTR(stu_lastName , 'Parker') > 0;
 The above code would give the following output:
 ```SQL
 stu_id	stu_firstName	stu_lastName
-6	    Sachin	        Parker
+6	      Sachin	      Parker
 ```
 
 **Note: The way the arguements are passed in the LOCATE(substr,str) and INSTR(str,substr) functions is different.**
@@ -101,7 +101,7 @@ SELECT * FROM student_details WHERE stu_lastName LIKE 'Parker' ;
 The above code would again give the following output:
 ```SQL
 stu_id	stu_firstName	stu_lastName
-6	    Sachin	        Parker
+6	      Sachin	      Parker
 ```
 
 Moreover, a `%`, also known as the wildcard is also used along with the LIKE operator. This wildcard, as the name suggests, represents none, one or multiple characters in its place. To see this wildcard in action, take a look at the code below.   
@@ -113,7 +113,7 @@ SELECT * FROM student_details WHERE stu_lastName LIKE '%arker' ;
 The above code would again give the following output:
 ```SQL
 stu_id	stu_firstName	stu_lastName
-6	    Sachin	        Parker
+6	      Sachin	      Parker
 ```
 
 Thus, with the help of the above three techniques, we can efficiently find determine the existence of a string from a table. 
