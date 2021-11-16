@@ -51,9 +51,9 @@ stu_id	stu_firstName	stu_lastName
 1	      Preet	        Sanghavi
 2	      Rich	        John
 3	      Veron	        Brow
-4	      Geo	          Jos
+4	      Geo	        Jos
 5	      Hash	        Shah
-6	      Sachin	      Parker
+6	      Sachin	    Parker
 7	      David	        Miller
 ```
 
@@ -61,7 +61,7 @@ stu_id	stu_firstName	stu_lastName
 
 ## Finding the student with last name as 'Parker' using the LOCATE function in MySQL.
 
-The locate function in MySQL generally takes 2 arguements such as LOCATE(substr, str). Here, substr is the substring passed in as the first argument, and str is the string passed in as the second argument. The output of the LOCATE function is the first row with the occurence of the string that is passed as an arguement. To see this function in action, take a look at the code below.
+The locate function in MySQL generally takes 2 arguements such as LOCATE(substr, str). Here, `substr` is the substring passed in as the first argument, and `str` is the string passed in as the second argument. The output of the LOCATE function is the first row with the occurence of the string that is passed as an arguement. To see this function in action, take a look at the code below.
 
 ```SQL
 -- finding the word 'Park' from the table where the last name of the student is Park.
