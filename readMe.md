@@ -13,9 +13,9 @@ inarticle = true
 In this tutorial, we aim at exploring different methods to check the presence of a string in a table in MySQL.
 
 We will go through the following techniques in MySQL.
-1. INSTR function
-2. LOCATE function
-3. LIKE Operator
+- INSTR function
+- LOCATE function
+- LIKE Operator
 
 However, before we begin, we create a dummy dataset to work with. Here we create a table, `student_details`, along with a few rows in it. 
 
@@ -59,7 +59,7 @@ stu_id	stu_firstName	stu_lastName
 
 ** Lets aim at finding all the students that contains the word 'Parker' in their surname. **
 
-## 1. Finding the student with last name as 'Parker' using the LOCATE function in MySQL.
+## Finding the student with last name as 'Parker' using the LOCATE function in MySQL.
 
 The locate function in MySQL generally takes 2 arguements such as LOCATE(substr, str). Here, substr is the substring passed in as the first argument, and str is the string passed in as the second argument. The output of the LOCATE function is the first row with the occurence of the string that is passed as an arguement. To see this function in action, take a look at the code below.
 
@@ -75,7 +75,7 @@ stu_id	stu_firstName	stu_lastName
 6	      Sachin	      Parker
 ```
 
-## 2. Finding the student with last name as 'Parker' using the INSTR function in MySQL.
+## Finding the student with last name as 'Parker' using the INSTR function in MySQL.
 
 Similar to the LOCATE function, the INSTR function, INSTR(str, substr), takes 2 arguements. However, this function returns the index value of the very first time the string occurs in the substring passed in as parameters. Here, the `str` is the string passed in as the first argument, and `substr` is the substring passed in as the second argument. To see this function in action, take a look at the code below.
 
@@ -94,7 +94,7 @@ stu_id	stu_firstName	stu_lastName
 
 **Note: The way the arguements are passed in the LOCATE(substr,str) and INSTR(str,substr) functions is different.**
 
-## 3. Finding the student with last name as 'Parker' using the LIKE operator in MySQL.
+## Finding the student with last name as 'Parker' using the LIKE operator in MySQL.
 
 Another alternative to find the existence of a string in your data is to use `LIKE`. This operator is used along with the `WHERE` clause to look for a particular string. To see this technique in action, take a look at the code below.   
 
