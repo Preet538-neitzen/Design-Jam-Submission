@@ -16,7 +16,7 @@ In this tutorial, we aim at exploring different methods to check the presence of
 We will go through the following techniques in MySQL.
 - INSTR function
 - LOCATE function
-- `%` wildcard
+- LIKE Operator
 
 However, before we begin, we create a dummy dataset to work with. Here we create a table, `student_details`, along with a few rows in it. 
 
