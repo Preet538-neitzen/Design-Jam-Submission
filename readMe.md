@@ -1,4 +1,4 @@
----
++++
 title = "Check if String exists in Data using MySQL"
 date = 2021-11-16
 draft = false
@@ -8,8 +8,7 @@ tags = ["MySQL", "Strings"]
 author = "Preet Sanghavi"
 postlink = 2602252
 inarticle = true
-
----
++++
 
 In this tutorial, we aim at exploring different methods to check the presence of a string in a table in MySQL.
 
@@ -44,19 +43,21 @@ The above query creates a table along with rows with student first name and last
 ```SQL
 SELECT * FROM student_details;
 ```
+
 The above code would give the following output:
+
 ```SQL
 stu_id	stu_firstName	stu_lastName
 1	      Preet	        Sanghavi
 2	      Rich	        John
 3	      Veron	        Brow
-4	      Geo	          Jos
+4	      Geo	        Jos
 5	      Hash	        Shah
-6	      Sachin	      Parker
+6	      Sachin	    Parker
 7	      David	        Miller
 ```
 
-**Let's aim at finding all the students that contains the word 'Parker' in their surname.**
+** Lets aim at finding all the students that contains the word 'Parker' in their surname. **
 
 ## 1. Finding the student with last name as 'Parker' using the LOCATE function in MySQL.
 
@@ -66,10 +67,12 @@ The locate function in MySQL generally takes 2 arguements such as LOCATE(substr,
 -- finding the word 'Park' from the table where the last name of the student is Park.
 SELECT * FROM student_details WHERE LOCATE('Park', stu_lastName) > 0 ;
 ```
+
 The above code would give the following output:
+
 ```SQL
 stu_id	stu_firstName	stu_lastName
-6	    Sachin	        Parker
+6	      Sachin	      Parker
 ```
 
 ## 2. Finding the student with last name as 'Parker' using the INSTR function in MySQL.
@@ -81,7 +84,9 @@ Similar to the LOCATE function, the INSTR function, INSTR(str, substr), takes 2 
 -- finding the word 'Park' from the table where the last name of the student is Park.
 SELECT * FROM student_details WHERE INSTR(stu_lastName , 'Parker') > 0;
 ```
+
 The above code would give the following output:
+
 ```SQL
 stu_id	stu_firstName	stu_lastName
 6	      Sachin	      Parker
@@ -98,7 +103,9 @@ Another alternative to find the existence of a string in your data is to use `LI
 -- finding the word 'Park' from the table where the last name of the student is Parker.
 SELECT * FROM student_details WHERE stu_lastName LIKE 'Parker' ;
 ```
+
 The above code would again give the following output:
+
 ```SQL
 stu_id	stu_firstName	stu_lastName
 6	      Sachin	      Parker
@@ -110,7 +117,9 @@ Moreover, a `%`, also known as the wildcard is also used along with the LIKE ope
 -- finding the student with last name ending in 'arker' from the table.
 SELECT * FROM student_details WHERE stu_lastName LIKE '%arker' ;
 ```
+
 The above code would again give the following output:
+
 ```SQL
 stu_id	stu_firstName	stu_lastName
 6	      Sachin	      Parker
