@@ -51,13 +51,13 @@ stu_id	stu_firstName	stu_lastName
 1	      Preet	        Sanghavi
 2	      Rich	        John
 3	      Veron	        Brow
-4	      Geo	        Jos
+4	      Geo	          Jos
 5	      Hash	        Shah
-6	      Sachin	    Parker
+6	      Sachin	      Parker
 7	      David	        Miller
 ```
 
-** Lets aim at finding all the students that contains the word 'Parker' in their surname. **
+** Lets aim at finding all the students that contains the word 'Parker' in their surname **
 
 ## Finding the student with last name as 'Parker' using the LOCATE function in MySQL.
 
