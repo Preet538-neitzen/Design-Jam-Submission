@@ -46,13 +46,14 @@ SELECT * FROM student_details;
 ```
 The above code would give the following output:
 ```SQL
-1|Preet|Sanghavi
-2|Rich|John
-3|Veron|Brow
-4|Geo|Jos
-5|Hash|Shah
-6|Sachin|Parker
-7|David|Miller
+stu_id	stu_firstName	stu_lastName
+1	      Preet	        Sanghavi
+2	      Rich	        John
+3	      Veron	        Brow
+4	      Geo	          Jos
+5	      Hash	        Shah
+6	      Sachin	      Parker
+7	      David	        Miller
 ```
 
 **Let's aim at finding all the students that contains the word 'Park' in their surname.**
